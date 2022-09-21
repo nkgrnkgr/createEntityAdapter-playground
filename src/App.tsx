@@ -1,7 +1,7 @@
-import { Box, Container, Text } from "@chakra-ui/react";
+import { Box, Container } from "@chakra-ui/react";
 import { AddBookInputForm } from "./components/AddBookInputForm";
 import { BookList } from "./components/BookList";
-import { Counter } from "./components/Counter";
+import { Result } from "./components/Result";
 
 export const App = () => {
   return (
@@ -10,26 +10,17 @@ export const App = () => {
         mt: 10,
       }}
     >
-      <Text>Counter</Text>
-      <Box>
-        <Counter />
-      </Box>
       <Box
         sx={{
-          ml: 5,
-          mr: 5,
+          mb: 10,
         }}
       >
         <AddBookInputForm />
       </Box>
-      <Box
-        sx={{
-          ml: 5,
-          mr: 5,
-        }}
-      >
+      <Box sx={{}}>
         <BookList />
       </Box>
+      <Result />
     </Container>
   );
 };
