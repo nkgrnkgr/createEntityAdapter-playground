@@ -3,6 +3,7 @@ import { Input, ListIcon, ListItem, Text } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { actions, booksSelectors } from "../modules/booksSlice";
 import { RootState, useRootDispatch } from "../modules/store";
+import { AUTHORS, AuthorSelect } from "./AuthorSelect";
 
 type Props = {
   bookId: string;
@@ -18,6 +19,15 @@ export const BookItem: React.FC<Props> = ({ bookId }) => {
   if (!book) {
     return null;
   }
+
+  const handleSelect = (value: string) => {
+    dispatch(
+      actions.updateAuthor({
+        bookId: book.bookId,
+        author: AUTHORS.find((a) => a.authorId === value),
+      })
+    );
+  };
 
   const handleChange = (newValue: string) => {
     dispatch(
@@ -42,6 +52,10 @@ export const BookItem: React.FC<Props> = ({ bookId }) => {
         type="text"
         value={book.title}
         onChange={(e) => handleChange(e.target.value)}
+      />
+      <AuthorSelect
+        selectedAuthorId={book.author?.authorId || ""}
+        selectAuthorId={handleSelect}
       />
     </ListItem>
   );

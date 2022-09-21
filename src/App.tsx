@@ -16,14 +16,16 @@ export const App = () => {
       </Box>
       <Box
         sx={{
-          m: 10,
+          ml: 5,
+          mr: 5,
         }}
       >
         <AddBookInputForm />
       </Box>
       <Box
         sx={{
-          m: 10,
+          ml: 5,
+          mr: 5,
         }}
       >
         <BookList />

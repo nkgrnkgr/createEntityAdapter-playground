@@ -5,9 +5,15 @@ import {
 } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 
+export type Author = {
+  authorId: string;
+  name: string;
+};
+
 type Book = {
   bookId: string;
   title: string;
+  author?: Author;
 };
 
 const booksAdapter = createEntityAdapter<Book>({
@@ -27,6 +33,13 @@ export const { actions, reducer } = createSlice({
     ) {
       const { bookId, title } = action.payload;
       booksAdapter.updateOne(state, { id: bookId, changes: { title } });
+    },
+    updateAuthor(
+      state,
+      action: PayloadAction<{ bookId: string; author?: Author }>
+    ) {
+      const { bookId, author } = action.payload;
+      booksAdapter.updateOne(state, { id: bookId, changes: { author } });
     },
   },
 });
