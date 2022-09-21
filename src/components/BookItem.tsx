@@ -22,8 +22,8 @@ export const BookItem: React.FC<Props> = ({ bookId }) => {
   const handleChange = (newValue: string) => {
     dispatch(
       actions.updateTitle({
-        bookId: bookId,
-        newTitle: newValue,
+        bookId: book.bookId,
+        title: newValue,
       })
     );
   };

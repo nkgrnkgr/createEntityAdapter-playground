@@ -4,12 +4,12 @@ import { booksSelectors } from "../modules/booksSlice";
 import { BookItem } from "./BookItem";
 
 export const BookList: React.FC = () => {
-  const books = useSelector(booksSelectors.selectAll);
+  const ids = useSelector(booksSelectors.selectIds);
 
   return (
     <List spacing={3}>
-      {books.map(({ bookId }) => (
-        <BookItem key={bookId} bookId={bookId} />
+      {ids.map((id) => (
+        <BookItem key={id} bookId={id.toString()} />
       ))}
     </List>
   );

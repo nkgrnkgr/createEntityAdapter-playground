@@ -3,6 +3,7 @@ import {
   createSlice,
   PayloadAction,
 } from "@reduxjs/toolkit";
+import { RootState } from "./store";
 
 type Book = {
   bookId: string;
@@ -22,13 +23,10 @@ export const { actions, reducer } = createSlice({
     },
     updateTitle(
       state,
-      action: PayloadAction<{ bookId: string; newTitle: string }>
+      action: PayloadAction<{ bookId: string; title: string }>
     ) {
-      const { bookId, newTitle } = action.payload;
-      booksAdapter.setOne(state, {
-        bookId,
-        title: newTitle,
-      });
+      const { bookId, title } = action.payload;
+      booksAdapter.updateOne(state, { id: bookId, changes: { title } });
     },
   },
 });
