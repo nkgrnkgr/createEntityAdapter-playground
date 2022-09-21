@@ -1,11 +1,11 @@
 import { CheckCircleIcon } from "@chakra-ui/icons";
-import { ListIcon, ListItem } from "@chakra-ui/react";
+import { Input, ListIcon, ListItem, Text } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
-import { booksSelectors } from "../modules/booksSlice";
-import { RootState } from "../modules/store";
+import { actions, booksSelectors } from "../modules/booksSlice";
+import { RootState, useRootDispatch } from "../modules/store";
 
 type Props = {
-  bookId: number;
+  bookId: string;
 };
 
 export const BookItem: React.FC<Props> = ({ bookId }) => {
@@ -13,14 +13,36 @@ export const BookItem: React.FC<Props> = ({ bookId }) => {
     booksSelectors.selectById(state, bookId)
   );
 
+  const dispatch = useRootDispatch();
+
   if (!book) {
     return null;
   }
 
+  const handleChange = (newValue: string) => {
+    dispatch(
+      actions.updateTitle({
+        bookId: bookId,
+        newTitle: newValue,
+      })
+    );
+  };
+
   return (
-    <ListItem>
+    <ListItem
+      sx={{
+        display: "flex",
+        alignItems: "center",
+      }}
+    >
       <ListIcon as={CheckCircleIcon} color="green.500" />
-      {book.title}
+      <Text w="200px">{book.title}</Text>
+      <Input
+        sx={{ ml: 5, mr: 1 }}
+        type="text"
+        value={book.title}
+        onChange={(e) => handleChange(e.target.value)}
+      />
     </ListItem>
   );
 };
