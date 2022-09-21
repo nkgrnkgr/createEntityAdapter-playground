@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@chakra-ui/icons': ^2.0.10
   '@chakra-ui/react': ^2.3.4
   '@emotion/react': ^11.10.4
   '@emotion/styled': ^11.10.4
@@ -8,15 +9,18 @@ specifiers:
   '@types/react': ^18.0.17
   '@types/react-dom': ^18.0.6
   '@types/react-redux': ^7.1.24
+  '@types/uuid': ^8.3.4
   '@vitejs/plugin-react': ^2.1.0
   framer-motion: ^7.3.6
   react: ^18.2.0
   react-dom: ^18.2.0
   react-redux: ^8.0.2
   typescript: ^4.6.4
+  uuid: ^9.0.0
   vite: ^3.1.0
 
 dependencies:
+  '@chakra-ui/icons': 2.0.10_react@18.2.0
   '@chakra-ui/react': 2.3.4_lh7uegfj7whjnppi2cmdzk6cby
   '@emotion/react': 11.10.4_w5j4k42lgipnm43s3brx6h3c34
   '@emotion/styled': 11.10.4_yiaqs725o7pcd7rteavrnhgj4y
@@ -25,11 +29,13 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-redux: 8.0.2_6hrpdt74nuubt2lijsfizev3cu
+  uuid: 9.0.0
 
 devDependencies:
   '@types/react': 18.0.20
   '@types/react-dom': 18.0.6
   '@types/react-redux': 7.1.24
+  '@types/uuid': 8.3.4
   '@vitejs/plugin-react': 2.1.0_vite@3.1.3
   typescript: 4.8.3
   vite: 3.1.3
@@ -552,6 +558,26 @@ packages:
     dependencies:
       '@chakra-ui/shared-utils': 2.0.1
       '@chakra-ui/system': 2.2.11_hfzxdiydbrbhhfpkwuv3jhvwmq
+      react: 18.2.0
+    dev: false
+
+  /@chakra-ui/icon/3.0.10_react@18.2.0:
+    resolution: {integrity: sha512-utO569d9bptEraJrEhuImfNzQ8v+a8PsQh8kTsodCzg8B16R3t5TTuoqeJqS6Nq16Vq6w87QbX3/4A73CNK5fw==}
+    peerDependencies:
+      '@chakra-ui/system': '>=2.0.0'
+      react: '>=18'
+    dependencies:
+      '@chakra-ui/shared-utils': 2.0.1
+      react: 18.2.0
+    dev: false
+
+  /@chakra-ui/icons/2.0.10_react@18.2.0:
+    resolution: {integrity: sha512-hxMspvysOay2NsJyadM611F/Y4vVzJU/YkXTxsyBjm6v/DbENhpVmPnUf+kwwyl7dINNb9iOF+kuGxnuIEO1Tw==}
+    peerDependencies:
+      '@chakra-ui/system': '>=2.0.0'
+      react: '>=18'
+    dependencies:
+      '@chakra-ui/icon': 3.0.10_react@18.2.0
       react: 18.2.0
     dev: false
 
@@ -1620,6 +1646,10 @@ packages:
     resolution: {integrity: sha512-EwmlvuaxPNej9+T4v5AuBPJa2x2UOJVdjCtDHgcDqitUeOtjnJKJ+apYjVcAoBEMjKW1VVFGZLUb5+qqa09XFA==}
     dev: false
 
+  /@types/uuid/8.3.4:
+    resolution: {integrity: sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==}
+    dev: true
+
   /@vitejs/plugin-react/2.1.0_vite@3.1.3:
     resolution: {integrity: sha512-am6rPyyU3LzUYne3Gd9oj9c4Rzbq5hQnuGXSMT6Gujq45Il/+bunwq3lrB7wghLkiF45ygMwft37vgJ/NE8IAA==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -2541,6 +2571,11 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
       react: 18.2.0
+    dev: false
+
+  /uuid/9.0.0:
+    resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
+    hasBin: true
     dev: false
 
   /vite/3.1.3:
